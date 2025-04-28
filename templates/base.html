@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    
+    <!-- Pico.css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    
+    <!-- Slim Select -->
+    <link href="https://cdn.jsdelivr.net/npm/slim-select/dist/slimselect.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/slim-select/dist/slimselect.min.js"></script>
+    
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/color.css' %}">
+    
+    <!-- Scripts base -->
+    <script src="{% static 'js/util.js' %}"></script>
+    
+    <!-- Bloque extrascripts -->
+    {% block extrascripts %}{% endblock %}
+</head>
+
+{% block body %}
+<body>
+    <!-- Header con Pico.css -->
+    <header class="container-fluid">
+        {% include 'nav.html' %}
+    </header>
+
+    <main class="container">
+        <!-- Mensajes -->
+        {% include 'message.html' %}    
+
+        <section>
+            {% block content %}
+            {% endblock %}
+        </section>
+    </main>
+
+    <!-- Modal con HTML nativo (reemplaza modal_delete.html) -->
+    <dialog id="modal-delete">
+        <article>
+            <h3>¿Confirmar eliminación?</h3>
+            <p>Esta acción no se puede deshacer</p>
+            <footer>
+                <button onclick="document.getElementById('modal-delete').close()">Cancelar</button>
+                <button class="secondary" id="confirm-delete">Eliminar</button>
+            </footer>
+        </article>
+    </dialog>
+</body>
+{% endblock %}
+</html>
