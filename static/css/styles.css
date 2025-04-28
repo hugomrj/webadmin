@@ -1,0 +1,11 @@
+
+/* Clase login-form aplicada al artículo */
+.login-form {
+    width: 100%;  /* Hace que el artículo ocupe todo el ancho disponible */
+    max-width: 500px;  /* Limita el ancho máximo del artículo */
+    padding: 2rem;  /* Relleno alrededor del contenido */
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);  /* Sombra ligera para el artículo */
+    border-radius: 8px;  /* Bordes redondeados */
+    margin: 0 auto;  /* Centra el artículo horizontalmente */
+  }
+  

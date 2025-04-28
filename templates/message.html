@@ -1,35 +1,23 @@
 {% if messages %}
-<article class="container-fluid" style="margin: 1rem 0;">
-    {% for message in messages %}
-        {% if message.tags == 'success' %}
-        <div role="alert" class="alert-message alert-success">
-            <i class="fas fa-check-circle"></i>
-            <div>
-                <strong>¡Éxito!</strong> {{ message }}
-            </div>
-        </div>
-        {% elif message.tags == 'error' %}
-        <div role="alert" class="alert-message alert-error">
-            <i class="fas fa-times-circle"></i>
-            <div>
-                <strong>Error:</strong> {{ message }}
-            </div>
-        </div>
-        {% elif message.tags == 'warning' %}
-        <div role="alert" class="alert-message alert-warning">
-            <i class="fas fa-exclamation-triangle"></i>
-            <div>
-                <strong>Atención:</strong> {{ message }}
-            </div>
-        </div>
-        {% else %}
-        <div role="alert" class="alert-message alert-info">
-            <i class="fas fa-info-circle"></i>
-            <div>
-                <strong>Información:</strong> {{ message }}
-            </div>
-        </div>
-        {% endif %}
-    {% endfor %}
-</article>
+<div>
+  {% for message in messages %}
+    {% if message.tags == 'success' %}
+    <section class="pico-background-green-500" role="alert">
+      ✅ <strong>¡Éxito!</strong> {{ message }}
+    </section>
+    {% elif message.tags == 'error' %}
+    <section class="pico-background-red-500" role="alert">
+      ❌ <strong>Error:</strong> {{ message }}
+    </section>
+    {% elif message.tags == 'warning' %}
+    <section class="pico-background-yellow-400" role="alert">
+      ⚠️ <strong>Atención:</strong> {{ message }}
+    </section>
+    {% else %}
+    <section class="pico-background-cyan-400" role="alert">
+      ℹ️ <strong>Información:</strong> {{ message }}
+    </section>
+    {% endif %}
+  {% endfor %}
+</section>
 {% endif %}
