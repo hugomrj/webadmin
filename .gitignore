@@ -1,0 +1,35 @@
+# .gitignore
+
+# Entornos virtuales
+venv/
+env/
+ENV/
+.venv/
+
+# Archivos Python compilados
+*.pyc
+__pycache__/
+
+# Archivos de base de datos
+*.sqlite3
+
+# Configuración de Django
+*.log
+local_settings.py
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de migraciones (opcional, si no querés incluirlas todas)
+*/migrations/*.pyc
+*/migrations/__pycache__/
+
+# Carpeta de media (uploads de usuarios)
+media/
+
+# Node modules (si usás npm para algo)
+node_modules/
+
+# Archivos de Pico descargados localmente (opcional si no usás CDN)
+dist/
