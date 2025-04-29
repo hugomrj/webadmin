@@ -1,23 +1,10 @@
 {% if messages %}
-<div>
   {% for message in messages %}
-    {% if message.tags == 'success' %}
-    <section class="pico-background-green-500" role="alert">
-      ✅ <strong>¡Éxito!</strong> {{ message }}
+    <section class="pico-background-pink-600" >
+      <div style="display: flex; align-items: center; justify-content: space-between;">
+        <span>{{ message }}</span>
+        <button onclick="this.closest('section').remove()" style="background: none; border: none; font-size: 1.5rem; color: inherit; cursor: pointer;">&times;</button>
+      </div>
     </section>
-    {% elif message.tags == 'error' %}
-    <section class="pico-background-red-500" role="alert">
-      ❌ <strong>Error:</strong> {{ message }}
-    </section>
-    {% elif message.tags == 'warning' %}
-    <section class="pico-background-yellow-400" role="alert">
-      ⚠️ <strong>Atención:</strong> {{ message }}
-    </section>
-    {% else %}
-    <section class="pico-background-cyan-400" role="alert">
-      ℹ️ <strong>Información:</strong> {{ message }}
-    </section>
-    {% endif %}
   {% endfor %}
-</section>
 {% endif %}
