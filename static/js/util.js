@@ -69,3 +69,19 @@ function bloquearInput() {
 
 
 
+
+function mostrarContenido() {
+    // Obtener el spinner y ocultarlo
+    var spinnerElement = document.getElementById('main_spinner');
+    if (spinnerElement) {
+        spinnerElement.style.display = 'none';
+    }
+
+    // Mostrar el contenido principal
+    var containerElement = document.getElementById('main_container');
+    if (containerElement) {
+        containerElement.style.display = 'block';
+    }
+}
+
+

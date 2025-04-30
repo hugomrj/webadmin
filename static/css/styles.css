@@ -13,3 +13,37 @@
 
 
 
+
+
+
+  
+
+
+  #main_spinner {
+    /* Posicionamiento */
+    position: absolute; /* Posición absoluta como pediste */
+    top: 0;             /* Pega al borde superior */
+    left: 0;            /* Pega al borde izquierdo */
+    right: 0;           /* Se estira hasta el borde derecho */
+    bottom: 0;          /* Se estira hasta el borde inferior */
+    /* O alternativamente a top/left/right/bottom, puedes usar: */
+    /* width: 100vw; */ /* Ancho igual al 100% del viewport width */
+    /* height: 100vh; */ /* Alto igual al 100% del viewport height */
+  
+    /* Apariencia y Opacidad */
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo negro semi-transparente */
+    /* Explicación: rgba(R, G, B, Alpha) */
+    /* (0, 0, 0) es negro. */
+    /* El último valor (0.7) es la opacidad (0 = transparente, 1 = totalmente opaco). */
+    /* Puedes cambiarlo a 'black', 'white' o cualquier otro color si lo quieres totalmente opaco. */
+    /* Ej: background-color: white; */
+  
+    /* Orden de apilamiento (Encima de todo) */
+    z-index: 9999; /* Un número alto asegura que esté por encima de otros elementos con z-index menores */
+  
+    /* Opcional: Centrar contenido dentro del div (si pones un ícono de carga, por ejemplo) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
