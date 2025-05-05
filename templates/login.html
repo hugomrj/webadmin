@@ -1,18 +1,20 @@
 {% extends 'base.html' %}
 
+
+
+
 {% block body %}
+<main class="container" style="flex-grow: 1; display: flex; justify-content: center; align-items: center;">
 
 
-{% include 'message.html' %}
 
-<main class="container">
 
     <article class="login-form">
       <header>
         <h3>Iniciar sesión</h3>
       </header>
 
-      <form method="POST">
+      <form method="POST" id="loginForm">
         {% csrf_token %}
         
         <label for="username">
@@ -36,8 +38,25 @@
 
 
 
+
+
 </main>
+{% endblock %}
 
 
 
+{% block extrascripts %}
+<script>
+
+  document.addEventListener('DOMContentLoaded', function() {
+      var form = document.getElementById('loginForm');
+      if (form) {
+          form.addEventListener('submit', function() {
+              toggleSpinner(true);
+          });
+      }
+  });
+
+
+</script>
 {% endblock %}

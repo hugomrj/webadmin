@@ -64,23 +64,14 @@ function bloquearInput() {
 
 
 
-
-
-
-
-
-
-function mostrarContenido() {
-    // Obtener el spinner y ocultarlo
+function toggleSpinner(activar) {
     var spinnerElement = document.getElementById('main_spinner');
-    if (spinnerElement) {
-        spinnerElement.style.display = 'none';
-    }
 
-    // Mostrar el contenido principal
-    var containerElement = document.getElementById('main_container');
-    if (containerElement) {
-        containerElement.style.display = 'block';
+
+    if (spinnerElement) {
+        // Si activar es true, mostramos el spinner (display: flex)
+        // Si activar es false, ocultamos el spinner (display: none)
+        spinnerElement.style.display = activar ? 'flex' : 'none';
     }
 }
 

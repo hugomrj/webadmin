@@ -39,16 +39,23 @@
           // eliminarSpinner();
         };
     </script>
-    
-    
+       
     
     <!-- Bloque extrascripts -->
     {% block extrascripts %}{% endblock %}
+
+
 </head>
 
-{% block body %}
-<body>
 
+<!-- Mensajes -->
+{% include 'message.html' %}
+
+
+
+
+<body style="min-height: 100vh; display: flex; flex-direction: column;">
+{% block body %}
 
 
 
@@ -58,19 +65,12 @@
     </header>
 
 
-    {% include 'message.html' %}
-
+    
 
     <main class="container">
-        <!-- Mensajes -->
-        {% include 'message.html' %}    
-
-        <section>
-            {% block content %}
-            {% endblock %}
-        </section>
+        {% block main %}
+        {% endblock %}
     </main>
-
     
 
     <!-- Modal con HTML nativo (reemplaza modal_delete.html) -->
@@ -84,18 +84,19 @@
             </footer>
         </article>
     </dialog>
-</body>
+
+
 {% endblock %}
+</body>
 
 
 
-<!--
 <div id="main_spinner" >
     <span aria-busy="true"
         style="font-size: xxx-large;">
     </span>
 </div>
--->
+
 
 
 </html>

@@ -42,7 +42,7 @@
     z-index: 9999; /* Un número alto asegura que esté por encima de otros elementos con z-index menores */
   
     /* Opcional: Centrar contenido dentro del div (si pones un ícono de carga, por ejemplo) */
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
   }
