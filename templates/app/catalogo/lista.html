@@ -1,0 +1,40 @@
+<!-- templates/app/catalogo/lista.html -->
+{% extends 'base.html' %}
+
+{% block main %}
+<div class="container">
+    <h1>Catálogo de Productos</h1>
+    
+    <a href="{% url 'crear_catalogo' %}" role="button" class="contrast">Nuevo Producto</a>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Edad</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for catalogo in catalogos %}
+            <tr>
+                <td>{{ catalogo.nombre }}</td>
+                <td>${{ catalogo.precio }}</td>
+                <td>{{ catalogo.edad }}</td>
+                <td>{{ catalogo.get_estado_display }}</td>
+                <td>
+                    <a href="{% url 'editar_catalogo' catalogo.pk %}" role="button" class="secondary">Editar</a>
+                    <a href="{% url 'eliminar_catalogo' catalogo.pk %}" role="button" class="contrast">Eliminar</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">No hay productos en el catálogo</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

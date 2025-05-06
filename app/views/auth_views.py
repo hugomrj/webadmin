@@ -9,10 +9,12 @@ from django.contrib.auth.mixins import LoginRequiredMixin # type: ignore
 class Login(View):    
     template_name = 'login.html'
 
+
     def get(self, request, *args, **kwargs):
         # Cerrar sesión antes de mostrar la página de inicio de sesión
         logout(request)
         return render(request, self.template_name)
+
 
     def post(self, request, *args, **kwargs):
         # Cerrar sesión antes de intentar iniciar sesión nuevamente

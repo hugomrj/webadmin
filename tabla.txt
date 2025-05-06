@@ -1,0 +1,46 @@
+-- Table: public.catalogos
+
+-- DROP TABLE IF EXISTS public.catalogos;
+
+CREATE TABLE IF NOT EXISTS public.catalogos
+(
+    id integer NOT NULL DEFAULT nextval('catalogo_id_seq'::regclass),
+    nombre character varying(100) COLLATE pg_catalog."default" NOT NULL,
+    descripcion text COLLATE pg_catalog."default",
+    precio numeric(10,2) NOT NULL,
+    edad integer NOT NULL,
+    estado character(1) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT catalogo_pkey PRIMARY KEY (id),
+    CONSTRAINT catalogo_estado_check CHECK (estado = ANY (ARRAY['D'::bpchar, 'V'::bpchar]))
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.catalogos
+    OWNER to postgres;
+
+
+
+
+
+
+
+-- DROP TABLE IF EXISTS public.imagenes;
+
+CREATE TABLE IF NOT EXISTS public.imagenes
+(
+    id integer NOT NULL DEFAULT nextval('imagen_id_seq'::regclass),
+    catalogo_id integer NOT NULL,
+    ruta text COLLATE pg_catalog."default" NOT NULL,
+    principal boolean DEFAULT false,
+    CONSTRAINT imagen_pkey PRIMARY KEY (id),
+    CONSTRAINT imagen_catalogo_id_fkey FOREIGN KEY (catalogo_id)
+        REFERENCES public.catalogos (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE CASCADE
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.imagenes
+    OWNER to postgres;    
