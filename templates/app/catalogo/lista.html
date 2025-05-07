@@ -1,5 +1,7 @@
 <!-- templates/app/catalogo/lista.html -->
 {% extends 'base.html' %}
+{% load humanize %}
+
 
 {% block main %}
 <div class="container">
@@ -20,8 +22,8 @@
         <tbody>
             {% for catalogo in catalogos %}
             <tr>
-                <td>{{ catalogo.nombre }}</td>
-                <td>${{ catalogo.precio }}</td>
+                <td>{{ catalogo.nombre }}</td>                
+                <td>{{ catalogo.precio|floatformat:0|intcomma }}</td>
                 <td>{{ catalogo.edad }}</td>
                 <td>{{ catalogo.get_estado_display }}</td>
                 <td>
