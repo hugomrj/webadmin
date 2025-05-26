@@ -141,8 +141,21 @@
         <a href="{% url 'editar_catalogo' object.id %}">Editar producto</a>
       
       {% elif view_type == 'crear' %}
-        <button type="submit">Crear producto</button>
-        <a href="{% url 'lista_catalogos' %}">Cancelar</a>
+
+
+      <div class="grid">
+        <div>
+          <a href="{% url 'lista_catalogos' %}">
+            <button class="secondary"  type="button" style="width: 100%">Cancelar</button>
+          </a>
+        </div>
+        <div>
+          <button type="submit" style="width: 100%">Crear producto</button>
+        </div>
+        <div></div>
+        <div></div>
+      </div>
+      
       
       {% else %} {# editar #}
         <button type="submit">Guardar cambios</button>
@@ -155,13 +168,7 @@
 
         
         
-    <div class="grid">
-        <div><button style="width: 100%">Disabled</button></div>
-        <div><button class="secondary" style="width: 100%">Disabled</button></div>
-        
-        <div></div>
-        <div></div>
-      </div>
+
 
 
 
